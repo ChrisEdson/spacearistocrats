@@ -478,15 +478,15 @@ struct Sound
 
 Sound sounds[] =
 {
-    { "data/09-OverdriveSexMachinev0_5.wav"       , 0 },
-    { "data/410__tictacshutup__thump-1.wav"       , 0 },
-    { "data/94185__nbs-dark__explosion.wav"       , 0 },
-    { "data/jetwashloop.wav"                      , 0 },
-    { "data/171671__fins__success-1.wav"          , 0 },
-    { "data/missile_launch_2.wav"                 , 0 },
-    { "data/gravity_bomb.wav"                     , 0 },
-    { "data/tesla_tower.wav"                      , 0 },
-    { "data/zzzt.wav"                             , 0 }
+    { "data/sounds/bg_music.wav"       , 0 },
+    { "data/sounds/thump.wav"       , 0 },
+    { "data/sounds/explosion.wav"       , 0 },
+    { "data/sounds/jet.wav"                      , 0 },
+    { "data/sounds/success.wav"          , 0 },
+    { "data/sounds/pew.wav"                 , 0 },
+    { "data/sounds/gravity_bomb.wav"                     , 0 },
+    { "data/sounds/tesla_tower.wav"                      , 0 },
+    { "data/sounds/zzzt.wav"                             , 0 }
 };
 
 void LoadSounds()
