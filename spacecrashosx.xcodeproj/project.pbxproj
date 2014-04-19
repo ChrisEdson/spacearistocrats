@@ -8,16 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		8386DAFD1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
-		8386DB071902D69F00EFF3A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8386DB051902D69F00EFF3A3 /* InfoPlist.strings */; };
-		8386DB091902D69F00EFF3A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB081902D69F00EFF3A3 /* main.m */; };
-		8386DB0D1902D69F00EFF3A3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8386DB0B1902D69F00EFF3A3 /* Credits.rtf */; };
-		8386DB101902D69F00EFF3A3 /* CEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB0F1902D69F00EFF3A3 /* CEAppDelegate.m */; };
-		8386DB131902D69F00EFF3A3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8386DB111902D69F00EFF3A3 /* MainMenu.xib */; };
-		8386DB151902D69F00EFF3A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8386DB141902D69F00EFF3A3 /* Images.xcassets */; };
 		8386DB1C1902D69F00EFF3A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB1B1902D69F00EFF3A3 /* XCTest.framework */; };
 		8386DB1D1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
 		8386DB251902D69F00EFF3A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8386DB231902D69F00EFF3A3 /* InfoPlist.strings */; };
 		8386DB271902D69F00EFF3A3 /* spacecrashosxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB261902D69F00EFF3A3 /* spacecrashosxTests.m */; };
+		8386DB391902D75400EFF3A3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB381902D75400EFF3A3 /* IOKit.framework */; };
+		8386DB3B1902D75900EFF3A3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3A1902D75900EFF3A3 /* OpenGL.framework */; };
+		8386DB3D1902D75E00EFF3A3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */; };
+		8386DB491902D7FA00EFF3A3 /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB421902D7FA00EFF3A3 /* core.cpp */; };
+		8386DB4A1902D7FA00EFF3A3 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB441902D7FA00EFF3A3 /* game.cpp */; };
+		8386DB4B1902D7FA00EFF3A3 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB451902D7FA00EFF3A3 /* stdafx.cpp */; };
+		8386DB4C1902D7FA00EFF3A3 /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB471902D7FA00EFF3A3 /* sys_osx.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,18 +39,25 @@
 		8386DB011902D69F00EFF3A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8386DB041902D69F00EFF3A3 /* spacecrashosx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spacecrashosx-Info.plist"; sourceTree = "<group>"; };
 		8386DB061902D69F00EFF3A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8386DB081902D69F00EFF3A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8386DB0A1902D69F00EFF3A3 /* spacecrashosx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spacecrashosx-Prefix.pch"; sourceTree = "<group>"; };
 		8386DB0C1902D69F00EFF3A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8386DB0E1902D69F00EFF3A3 /* CEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAppDelegate.h; sourceTree = "<group>"; };
-		8386DB0F1902D69F00EFF3A3 /* CEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEAppDelegate.m; sourceTree = "<group>"; };
-		8386DB121902D69F00EFF3A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8386DB141902D69F00EFF3A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8386DB1A1902D69F00EFF3A3 /* spacecrashosxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spacecrashosxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DB1B1902D69F00EFF3A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8386DB221902D69F00EFF3A3 /* spacecrashosxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spacecrashosxTests-Info.plist"; sourceTree = "<group>"; };
 		8386DB241902D69F00EFF3A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8386DB261902D69F00EFF3A3 /* spacecrashosxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spacecrashosxTests.m; sourceTree = "<group>"; };
+		8386DB381902D75400EFF3A3 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		8386DB3A1902D75900EFF3A3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		8386DB411902D7FA00EFF3A3 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base.h; path = src/base.h; sourceTree = "<group>"; };
+		8386DB421902D7FA00EFF3A3 /* core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = core.cpp; path = src/core.cpp; sourceTree = "<group>"; };
+		8386DB431902D7FA00EFF3A3 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = core.h; path = src/core.h; sourceTree = "<group>"; };
+		8386DB441902D7FA00EFF3A3 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = game.cpp; path = src/game.cpp; sourceTree = "<group>"; };
+		8386DB451902D7FA00EFF3A3 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = src/stdafx.cpp; sourceTree = "<group>"; };
+		8386DB461902D7FA00EFF3A3 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = src/stdafx.h; sourceTree = "<group>"; };
+		8386DB471902D7FA00EFF3A3 /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sys_osx.cpp; path = src/sys_osx.cpp; sourceTree = "<group>"; };
+		8386DB481902D7FA00EFF3A3 /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sys.h; path = src/sys.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8386DB3D1902D75E00EFF3A3 /* OpenAL.framework in Frameworks */,
+				8386DB3B1902D75900EFF3A3 /* OpenGL.framework in Frameworks */,
+				8386DB391902D75400EFF3A3 /* IOKit.framework in Frameworks */,
 				8386DAFD1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +87,14 @@
 		8386DAF01902D69F00EFF3A3 = {
 			isa = PBXGroup;
 			children = (
+				8386DB411902D7FA00EFF3A3 /* base.h */,
+				8386DB421902D7FA00EFF3A3 /* core.cpp */,
+				8386DB431902D7FA00EFF3A3 /* core.h */,
+				8386DB441902D7FA00EFF3A3 /* game.cpp */,
+				8386DB451902D7FA00EFF3A3 /* stdafx.cpp */,
+				8386DB461902D7FA00EFF3A3 /* stdafx.h */,
+				8386DB471902D7FA00EFF3A3 /* sys_osx.cpp */,
+				8386DB481902D7FA00EFF3A3 /* sys.h */,
 				8386DB021902D69F00EFF3A3 /* spacecrashosx */,
 				8386DB201902D69F00EFF3A3 /* spacecrashosxTests */,
 				8386DAFB1902D69F00EFF3A3 /* Frameworks */,
@@ -95,6 +114,9 @@
 		8386DAFB1902D69F00EFF3A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */,
+				8386DB3A1902D75900EFF3A3 /* OpenGL.framework */,
+				8386DB381902D75400EFF3A3 /* IOKit.framework */,
 				8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */,
 				8386DB1B1902D69F00EFF3A3 /* XCTest.framework */,
 				8386DAFE1902D69F00EFF3A3 /* Other Frameworks */,
@@ -115,9 +137,6 @@
 		8386DB021902D69F00EFF3A3 /* spacecrashosx */ = {
 			isa = PBXGroup;
 			children = (
-				8386DB0E1902D69F00EFF3A3 /* CEAppDelegate.h */,
-				8386DB0F1902D69F00EFF3A3 /* CEAppDelegate.m */,
-				8386DB111902D69F00EFF3A3 /* MainMenu.xib */,
 				8386DB141902D69F00EFF3A3 /* Images.xcassets */,
 				8386DB031902D69F00EFF3A3 /* Supporting Files */,
 			);
@@ -129,7 +148,6 @@
 			children = (
 				8386DB041902D69F00EFF3A3 /* spacecrashosx-Info.plist */,
 				8386DB051902D69F00EFF3A3 /* InfoPlist.strings */,
-				8386DB081902D69F00EFF3A3 /* main.m */,
 				8386DB0A1902D69F00EFF3A3 /* spacecrashosx-Prefix.pch */,
 				8386DB0B1902D69F00EFF3A3 /* Credits.rtf */,
 			);
@@ -231,10 +249,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8386DB071902D69F00EFF3A3 /* InfoPlist.strings in Resources */,
-				8386DB151902D69F00EFF3A3 /* Images.xcassets in Resources */,
-				8386DB0D1902D69F00EFF3A3 /* Credits.rtf in Resources */,
-				8386DB131902D69F00EFF3A3 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8386DB101902D69F00EFF3A3 /* CEAppDelegate.m in Sources */,
-				8386DB091902D69F00EFF3A3 /* main.m in Sources */,
+				8386DB4C1902D7FA00EFF3A3 /* sys_osx.cpp in Sources */,
+				8386DB4B1902D7FA00EFF3A3 /* stdafx.cpp in Sources */,
+				8386DB491902D7FA00EFF3A3 /* core.cpp in Sources */,
+				8386DB4A1902D7FA00EFF3A3 /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,14 +307,6 @@
 				8386DB0C1902D69F00EFF3A3 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		8386DB111902D69F00EFF3A3 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8386DB121902D69F00EFF3A3 /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		8386DB231902D69F00EFF3A3 /* InfoPlist.strings */ = {
@@ -387,7 +395,14 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "spacecrashosx/spacecrashosx-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "spacecrashosx/spacecrashosx-Info.plist";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -400,7 +415,14 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "spacecrashosx/spacecrashosx-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "spacecrashosx/spacecrashosx-Info.plist";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -465,6 +487,7 @@
 				8386DB2C1902D69F00EFF3A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8386DB2D1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "spacecrashosxTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +496,7 @@
 				8386DB2F1902D69F00EFF3A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
