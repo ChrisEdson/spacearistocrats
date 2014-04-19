@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		834A023B1902DC9600A1A92A /* data in Resources */ = {isa = PBXBuildFile; fileRef = 834A023A1902DC9600A1A92A /* data */; };
 		8386DAFD1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
 		8386DB391902D75400EFF3A3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB381902D75400EFF3A3 /* IOKit.framework */; };
 		8386DB3B1902D75900EFF3A3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3A1902D75900EFF3A3 /* OpenGL.framework */; };
@@ -15,10 +14,10 @@
 		83CC0ECB1902DF1F00BD47E8 /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC51902DF1F00BD47E8 /* core.cpp */; };
 		83CC0ECC1902DF1F00BD47E8 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC71902DF1F00BD47E8 /* game.cpp */; };
 		83CC0ECD1902DF1F00BD47E8 /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */; };
+		83CC0ECF1902E26000BD47E8 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 83CC0ECE1902E26000BD47E8 /* data */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		834A023A1902DC9600A1A92A /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = spacecrashosx/data; sourceTree = "<group>"; };
 		8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spacecrashosx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8386DB141902D69F00EFF3A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		83CC0EC81902DF1F00BD47E8 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
 		83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sys_osx.cpp; sourceTree = "<group>"; };
 		83CC0ECA1902DF1F00BD47E8 /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sys.h; sourceTree = "<group>"; };
+		83CC0ECE1902E26000BD47E8 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,6 @@
 		8386DAF01902D69F00EFF3A3 = {
 			isa = PBXGroup;
 			children = (
-				834A023A1902DC9600A1A92A /* data */,
 				8386DB021902D69F00EFF3A3 /* spacecrashosx */,
 				8386DAFB1902D69F00EFF3A3 /* Frameworks */,
 				8386DAFA1902D69F00EFF3A3 /* Products */,
@@ -81,6 +80,7 @@
 		8386DB021902D69F00EFF3A3 /* spacecrashosx */ = {
 			isa = PBXGroup;
 			children = (
+				83CC0ECE1902E26000BD47E8 /* data */,
 				83CC0EC41902DF1F00BD47E8 /* base.h */,
 				83CC0EC51902DF1F00BD47E8 /* core.cpp */,
 				83CC0EC61902DF1F00BD47E8 /* core.h */,
@@ -146,7 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834A023B1902DC9600A1A92A /* data in Resources */,
+				83CC0ECF1902E26000BD47E8 /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

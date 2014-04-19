@@ -478,7 +478,7 @@ struct Sound
 
 Sound sounds[] =
 {
-    { "data/09 - Overdrive Sex Machine v0_5.wav"  , 0 },
+    { "data/09-OverdriveSexMachinev0_5.wav"       , 0 },
     { "data/410__tictacshutup__thump-1.wav"       , 0 },
     { "data/94185__nbs-dark__explosion.wav"       , 0 },
     { "data/jetwashloop.wav"                      , 0 },
