@@ -1181,31 +1181,31 @@ MenuDef g_MenuDefs[] = {
     },
     /*M_HELP*/           { "", 11,
         {{ "WELCOME TO",       M_PASSIVE, 0},
-            { "SPACECRASH!",      M_PASSIVE, 0},
+            { "SPACEDICKS!",      M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "STEER YOUR SHIP,", M_PASSIVE, 0},
             { "AVOID ROCKS,",     M_PASSIVE, 0},
             { "MINES, AND",       M_PASSIVE, 0},
             { "ENEMY DRONES",     M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
-            { "WWW.JONBHO.NET",   M_PASSIVE, 0},
+            { "CHRIS EDSON FTW",   M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "NEXT",             M_HELP2,   0}}
     },
     /*M_HELP2*/           { "", 15,
-        {{ "GAME BY JONBHO",   M_PASSIVE, 0},
+        {{ "GAME BY CHRIS",   M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
-            { "GFX BY DAN COOK",  M_PASSIVE, 0},
+            { "GFX BY CHRIS",  M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "MUSIC BY",         M_PASSIVE, 0},
-            { "FOXSYNERGY",       M_PASSIVE, 0},
+            { "??? CHRIS ???",       M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "SOUND FX BY:",     M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
-            { "STEPHEN CAMERON",  M_PASSIVE, 0},
-            { "TICTACSHUTUP",     M_PASSIVE, 0},
-            { "FINS",             M_PASSIVE, 0},
-            { "NBS DARK",         M_PASSIVE, 0},
+            { "CHRIS",  M_PASSIVE, 0},
+            { "",     M_PASSIVE, 0},
+            { "",             M_PASSIVE, 0},
+            { "",         M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "BACK",             M_MAIN,    1}}
     },
@@ -1214,7 +1214,7 @@ MenuDef g_MenuDefs[] = {
             { "SOUND FX: ON",     M_ACTION_TOGGLE_SOUND_FX, 1},
             { "BACK",             M_MAIN, 2}},
     },
-    /*M_CONFIRM_EXIT*/   { "ARE YOU SURE?", 2,
+    /*M_CONFIRM_EXIT*/   { "GAYING OUT?", 2,
         {{ "EXIT",             M_ACTION_EXIT, 0},
             { "GO BACK",          M_MAIN, 3}}
     },
@@ -1228,7 +1228,7 @@ MenuDef g_MenuDefs[] = {
             { "SOUND FX: ON",     M_ACTION_TOGGLE_SOUND_FX, 1},
             { "BACK",             M_INGAME, 1}}
     },
-    /*M_CONFIRM_CANCEL*/ { "ARE YOU SURE?", 2,
+    /*M_CONFIRM_CANCEL*/ { "GAYING OUT?", 2,
         {{ "EXIT",             M_ACTION_CANCEL, 0},
             { "GO BACK",          M_INGAME, 1}}
     },
@@ -1304,8 +1304,8 @@ void RenderMenu()
     // Main menu adornments
     if (g_current_menu == M_MAIN)
     {
-        DrawCenteredLine(7.f/9.f * G_HEIGHT, "SPACECRASH", makergba(1.f,.8f,.1f,1.f), MENU_TITLE_CHAR_SIZE);
-        DrawCenteredLine(1.f/8.f * G_HEIGHT, "~ 2013 JONBHO", makergba(.8f,.8f,1.f,1.f), MENU_CHAR_SIZE);
+        DrawCenteredLine(7.f/9.f * G_HEIGHT, "SPACEDICKS", makergba(1.f,.8f,.1f,1.f), MENU_TITLE_CHAR_SIZE);
+        DrawCenteredLine(1.f/8.f * G_HEIGHT, "~ 2013 CHRIS", makergba(.8f,.8f,1.f,1.f), MENU_CHAR_SIZE);
     }
 }
 
