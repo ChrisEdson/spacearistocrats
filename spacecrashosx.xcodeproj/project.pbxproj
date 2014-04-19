@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834A02341902DB8000A1A92A /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A022D1902DB8000A1A92A /* core.cpp */; };
+		834A02351902DB8000A1A92A /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A022F1902DB8000A1A92A /* game.cpp */; };
+		834A02361902DB8000A1A92A /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A02301902DB8000A1A92A /* stdafx.cpp */; };
+		834A02371902DB8000A1A92A /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A02321902DB8000A1A92A /* sys_osx.cpp */; };
+		834A02391902DB9200A1A92A /* data in Resources */ = {isa = PBXBuildFile; fileRef = 834A02381902DB9200A1A92A /* data */; };
 		8386DAFD1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
 		8386DB1C1902D69F00EFF3A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB1B1902D69F00EFF3A3 /* XCTest.framework */; };
 		8386DB1D1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
@@ -15,10 +20,6 @@
 		8386DB391902D75400EFF3A3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB381902D75400EFF3A3 /* IOKit.framework */; };
 		8386DB3B1902D75900EFF3A3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3A1902D75900EFF3A3 /* OpenGL.framework */; };
 		8386DB3D1902D75E00EFF3A3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */; };
-		8386DB491902D7FA00EFF3A3 /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB421902D7FA00EFF3A3 /* core.cpp */; };
-		8386DB4A1902D7FA00EFF3A3 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB441902D7FA00EFF3A3 /* game.cpp */; };
-		8386DB4B1902D7FA00EFF3A3 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB451902D7FA00EFF3A3 /* stdafx.cpp */; };
-		8386DB4C1902D7FA00EFF3A3 /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB471902D7FA00EFF3A3 /* sys_osx.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		834A022C1902DB8000A1A92A /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
+		834A022D1902DB8000A1A92A /* core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core.cpp; sourceTree = "<group>"; };
+		834A022E1902DB8000A1A92A /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		834A022F1902DB8000A1A92A /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		834A02301902DB8000A1A92A /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		834A02311902DB8000A1A92A /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		834A02321902DB8000A1A92A /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sys_osx.cpp; sourceTree = "<group>"; };
+		834A02331902DB8000A1A92A /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sys.h; sourceTree = "<group>"; };
+		834A02381902DB9200A1A92A /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spacecrashosx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8386DAFF1902D69F00EFF3A3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -48,14 +58,6 @@
 		8386DB381902D75400EFF3A3 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8386DB3A1902D75900EFF3A3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		8386DB411902D7FA00EFF3A3 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base.h; path = src/base.h; sourceTree = "<group>"; };
-		8386DB421902D7FA00EFF3A3 /* core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = core.cpp; path = src/core.cpp; sourceTree = "<group>"; };
-		8386DB431902D7FA00EFF3A3 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = core.h; path = src/core.h; sourceTree = "<group>"; };
-		8386DB441902D7FA00EFF3A3 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = game.cpp; path = src/game.cpp; sourceTree = "<group>"; };
-		8386DB451902D7FA00EFF3A3 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = src/stdafx.cpp; sourceTree = "<group>"; };
-		8386DB461902D7FA00EFF3A3 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = src/stdafx.h; sourceTree = "<group>"; };
-		8386DB471902D7FA00EFF3A3 /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sys_osx.cpp; path = src/sys_osx.cpp; sourceTree = "<group>"; };
-		8386DB481902D7FA00EFF3A3 /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sys.h; path = src/sys.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +87,6 @@
 		8386DAF01902D69F00EFF3A3 = {
 			isa = PBXGroup;
 			children = (
-				8386DB411902D7FA00EFF3A3 /* base.h */,
-				8386DB421902D7FA00EFF3A3 /* core.cpp */,
-				8386DB431902D7FA00EFF3A3 /* core.h */,
-				8386DB441902D7FA00EFF3A3 /* game.cpp */,
-				8386DB451902D7FA00EFF3A3 /* stdafx.cpp */,
-				8386DB461902D7FA00EFF3A3 /* stdafx.h */,
-				8386DB471902D7FA00EFF3A3 /* sys_osx.cpp */,
-				8386DB481902D7FA00EFF3A3 /* sys.h */,
 				8386DB021902D69F00EFF3A3 /* spacecrashosx */,
 				8386DB201902D69F00EFF3A3 /* spacecrashosxTests */,
 				8386DAFB1902D69F00EFF3A3 /* Frameworks */,
@@ -135,6 +129,15 @@
 		8386DB021902D69F00EFF3A3 /* spacecrashosx */ = {
 			isa = PBXGroup;
 			children = (
+				834A02381902DB9200A1A92A /* data */,
+				834A022C1902DB8000A1A92A /* base.h */,
+				834A022D1902DB8000A1A92A /* core.cpp */,
+				834A022E1902DB8000A1A92A /* core.h */,
+				834A022F1902DB8000A1A92A /* game.cpp */,
+				834A02301902DB8000A1A92A /* stdafx.cpp */,
+				834A02311902DB8000A1A92A /* stdafx.h */,
+				834A02321902DB8000A1A92A /* sys_osx.cpp */,
+				834A02331902DB8000A1A92A /* sys.h */,
 				8386DB141902D69F00EFF3A3 /* Images.xcassets */,
 				8386DB031902D69F00EFF3A3 /* Supporting Files */,
 			);
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834A02391902DB9200A1A92A /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8386DB4C1902D7FA00EFF3A3 /* sys_osx.cpp in Sources */,
-				8386DB4B1902D7FA00EFF3A3 /* stdafx.cpp in Sources */,
-				8386DB491902D7FA00EFF3A3 /* core.cpp in Sources */,
-				8386DB4A1902D7FA00EFF3A3 /* game.cpp in Sources */,
+				834A02371902DB8000A1A92A /* sys_osx.cpp in Sources */,
+				834A02361902DB8000A1A92A /* stdafx.cpp in Sources */,
+				834A02341902DB8000A1A92A /* core.cpp in Sources */,
+				834A02351902DB8000A1A92A /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
