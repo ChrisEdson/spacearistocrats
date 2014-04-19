@@ -38,9 +38,7 @@
 		8386DB001902D69F00EFF3A3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8386DB011902D69F00EFF3A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8386DB041902D69F00EFF3A3 /* spacecrashosx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spacecrashosx-Info.plist"; sourceTree = "<group>"; };
-		8386DB061902D69F00EFF3A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8386DB0A1902D69F00EFF3A3 /* spacecrashosx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spacecrashosx-Prefix.pch"; sourceTree = "<group>"; };
-		8386DB0C1902D69F00EFF3A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8386DB141902D69F00EFF3A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8386DB1A1902D69F00EFF3A3 /* spacecrashosxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spacecrashosxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DB1B1902D69F00EFF3A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -147,9 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				8386DB041902D69F00EFF3A3 /* spacecrashosx-Info.plist */,
-				8386DB051902D69F00EFF3A3 /* InfoPlist.strings */,
 				8386DB0A1902D69F00EFF3A3 /* spacecrashosx-Prefix.pch */,
-				8386DB0B1902D69F00EFF3A3 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -293,22 +289,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8386DB051902D69F00EFF3A3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8386DB061902D69F00EFF3A3 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8386DB0B1902D69F00EFF3A3 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8386DB0C1902D69F00EFF3A3 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		8386DB231902D69F00EFF3A3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
