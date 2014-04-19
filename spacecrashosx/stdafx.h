@@ -11,6 +11,7 @@
 #include <SDKDDKVer.h>
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <ShlObj.h>
 #include <gl/gl.h>
 #include <GL/glu.h>
 #include <al.h>
@@ -32,7 +33,7 @@
 #endif
 
 //=============================================================================
-// Common includes		
+// Common includes
 
 #include <stdlib.h>
 #include <stdio.h>

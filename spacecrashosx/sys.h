@@ -24,6 +24,7 @@ void  SYS_Sleep(int ms);
 bool  SYS_KeyPressed(int key);
 ivec2 SYS_MousePos();
 bool  SYS_MouseButonPressed(int button);
+int   SYS_OpenConfigFile(bool write);
 
 //-----------------------------------------------------------------------------
 #ifdef _WINDOWS

@@ -13,36 +13,36 @@ extern int Main(void);
 //-----------------------------------------------------------------------------
 int main(int argc, char *argv[])
 {
-  int retval = -1;
-
-  if (glfwInit() == GL_TRUE)
-  {
-    if (glfwOpenWindow(SYS_WIDTH, SYS_HEIGHT, 0, 0, 0, 0, 8, 0, SYS_FULLSCREEN ? GLFW_FULLSCREEN : GLFW_WINDOW) == GL_TRUE) /* rgba, depth, stencil */
+    int retval = -1;
+    
+    if (glfwInit() == GL_TRUE)
     {
-        retval = Main();
-        glfwCloseWindow();
+        if (glfwOpenWindow(SYS_WIDTH, SYS_HEIGHT, 0, 0, 0, 0, 8, 0, SYS_FULLSCREEN ? GLFW_FULLSCREEN : GLFW_WINDOW) == GL_TRUE) /* rgba, depth, stencil */
+        {
+            retval = Main();
+            glfwCloseWindow();
+        }
+        glfwTerminate();
     }
-    glfwTerminate();
-  }
-  return retval;
+    return retval;
 }
 
 //-----------------------------------------------------------------------------
 void SYS_Pump()
 {
-  // GLFW takes care...
+    // GLFW takes care...
 }
 
 //-----------------------------------------------------------------------------
 void SYS_Show()
 {
-  glfwSwapBuffers();
+    glfwSwapBuffers();
 }
 
 //-----------------------------------------------------------------------------
 bool SYS_GottaQuit()
 {
-  return !glfwGetWindowParam(GLFW_OPENED);
+    return !glfwGetWindowParam(GLFW_OPENED);
 }
 
 //-----------------------------------------------------------------------------
@@ -54,22 +54,31 @@ void SYS_Sleep(int ms)
 //-----------------------------------------------------------------------------
 bool SYS_KeyPressed(int key)
 {
-  return glfwGetKey(key);
+    return glfwGetKey(key);
 }
 
 //-----------------------------------------------------------------------------
 ivec2 SYS_MousePos()
 {
-  int x, y;
-  ivec2 pos;
-  glfwGetMousePos(&x, &y);
-  pos.x = x;
-  pos.y = SYS_HEIGHT - y;
-  return pos;
+    int x, y;
+    ivec2 pos;
+    glfwGetMousePos(&x, &y);
+    pos.x = x;
+    pos.y = SYS_HEIGHT - y;
+    return pos;
 }
 
 //-----------------------------------------------------------------------------
 bool SYS_MouseButonPressed(int button)
 {
-  return glfwGetMouseButton(button);
+    return glfwGetMouseButton(button);
+}
+
+//-----------------------------------------------------------------------------
+int SYS_OpenConfigFile(bool write)
+{
+    char filename[FILENAME_MAX];
+    strncpy(filename, getenv("HOME"), sizeof(filename));
+    strncat(filename, "/.spacecrashrc", sizeof(filename) - strlen(filename) - 1);
+    return open(filename, (write ? O_WRONLY | O_CREAT | O_TRUNC: O_RDONLY), S_IRUSR | S_IWUSR);
 }

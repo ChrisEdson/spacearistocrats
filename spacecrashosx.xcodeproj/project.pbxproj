@@ -7,57 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		834A02341902DB8000A1A92A /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A022D1902DB8000A1A92A /* core.cpp */; };
-		834A02351902DB8000A1A92A /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A022F1902DB8000A1A92A /* game.cpp */; };
-		834A02361902DB8000A1A92A /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A02301902DB8000A1A92A /* stdafx.cpp */; };
-		834A02371902DB8000A1A92A /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 834A02321902DB8000A1A92A /* sys_osx.cpp */; };
-		834A02391902DB9200A1A92A /* data in Resources */ = {isa = PBXBuildFile; fileRef = 834A02381902DB9200A1A92A /* data */; };
+		834A023B1902DC9600A1A92A /* data in Resources */ = {isa = PBXBuildFile; fileRef = 834A023A1902DC9600A1A92A /* data */; };
 		8386DAFD1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
-		8386DB1C1902D69F00EFF3A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB1B1902D69F00EFF3A3 /* XCTest.framework */; };
-		8386DB1D1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
-		8386DB251902D69F00EFF3A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8386DB231902D69F00EFF3A3 /* InfoPlist.strings */; };
-		8386DB271902D69F00EFF3A3 /* spacecrashosxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8386DB261902D69F00EFF3A3 /* spacecrashosxTests.m */; };
 		8386DB391902D75400EFF3A3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB381902D75400EFF3A3 /* IOKit.framework */; };
 		8386DB3B1902D75900EFF3A3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3A1902D75900EFF3A3 /* OpenGL.framework */; };
 		8386DB3D1902D75E00EFF3A3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */; };
+		83CC0ECB1902DF1F00BD47E8 /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC51902DF1F00BD47E8 /* core.cpp */; };
+		83CC0ECC1902DF1F00BD47E8 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC71902DF1F00BD47E8 /* game.cpp */; };
+		83CC0ECD1902DF1F00BD47E8 /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		8386DB1E1902D69F00EFF3A3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8386DAF11902D69F00EFF3A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8386DAF81902D69F00EFF3A3;
-			remoteInfo = spacecrashosx;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		834A022C1902DB8000A1A92A /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
-		834A022D1902DB8000A1A92A /* core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core.cpp; sourceTree = "<group>"; };
-		834A022E1902DB8000A1A92A /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
-		834A022F1902DB8000A1A92A /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
-		834A02301902DB8000A1A92A /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
-		834A02311902DB8000A1A92A /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
-		834A02321902DB8000A1A92A /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sys_osx.cpp; sourceTree = "<group>"; };
-		834A02331902DB8000A1A92A /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sys.h; sourceTree = "<group>"; };
-		834A02381902DB9200A1A92A /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		834A023A1902DC9600A1A92A /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = spacecrashosx/data; sourceTree = "<group>"; };
 		8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spacecrashosx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8386DAFF1902D69F00EFF3A3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		8386DB001902D69F00EFF3A3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8386DB011902D69F00EFF3A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8386DB041902D69F00EFF3A3 /* spacecrashosx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spacecrashosx-Info.plist"; sourceTree = "<group>"; };
-		8386DB0A1902D69F00EFF3A3 /* spacecrashosx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spacecrashosx-Prefix.pch"; sourceTree = "<group>"; };
 		8386DB141902D69F00EFF3A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8386DB1A1902D69F00EFF3A3 /* spacecrashosxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spacecrashosxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8386DB1B1902D69F00EFF3A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8386DB221902D69F00EFF3A3 /* spacecrashosxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spacecrashosxTests-Info.plist"; sourceTree = "<group>"; };
-		8386DB241902D69F00EFF3A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8386DB261902D69F00EFF3A3 /* spacecrashosxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spacecrashosxTests.m; sourceTree = "<group>"; };
 		8386DB381902D75400EFF3A3 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8386DB3A1902D75900EFF3A3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8386DB3C1902D75E00EFF3A3 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		83CC0EC41902DF1F00BD47E8 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
+		83CC0EC51902DF1F00BD47E8 /* core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core.cpp; sourceTree = "<group>"; };
+		83CC0EC61902DF1F00BD47E8 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		83CC0EC71902DF1F00BD47E8 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		83CC0EC81902DF1F00BD47E8 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sys_osx.cpp; sourceTree = "<group>"; };
+		83CC0ECA1902DF1F00BD47E8 /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sys.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +46,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8386DB171902D69F00EFF3A3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8386DB1D1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */,
-				8386DB1C1902D69F00EFF3A3 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		8386DAF01902D69F00EFF3A3 = {
 			isa = PBXGroup;
 			children = (
+				834A023A1902DC9600A1A92A /* data */,
 				8386DB021902D69F00EFF3A3 /* spacecrashosx */,
-				8386DB201902D69F00EFF3A3 /* spacecrashosxTests */,
 				8386DAFB1902D69F00EFF3A3 /* Frameworks */,
 				8386DAFA1902D69F00EFF3A3 /* Products */,
 			);
@@ -98,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */,
-				8386DB1A1902D69F00EFF3A3 /* spacecrashosxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,65 +74,23 @@
 				8386DB3A1902D75900EFF3A3 /* OpenGL.framework */,
 				8386DB381902D75400EFF3A3 /* IOKit.framework */,
 				8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */,
-				8386DB1B1902D69F00EFF3A3 /* XCTest.framework */,
-				8386DAFE1902D69F00EFF3A3 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8386DAFE1902D69F00EFF3A3 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8386DAFF1902D69F00EFF3A3 /* AppKit.framework */,
-				8386DB001902D69F00EFF3A3 /* CoreData.framework */,
-				8386DB011902D69F00EFF3A3 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		8386DB021902D69F00EFF3A3 /* spacecrashosx */ = {
 			isa = PBXGroup;
 			children = (
-				834A02381902DB9200A1A92A /* data */,
-				834A022C1902DB8000A1A92A /* base.h */,
-				834A022D1902DB8000A1A92A /* core.cpp */,
-				834A022E1902DB8000A1A92A /* core.h */,
-				834A022F1902DB8000A1A92A /* game.cpp */,
-				834A02301902DB8000A1A92A /* stdafx.cpp */,
-				834A02311902DB8000A1A92A /* stdafx.h */,
-				834A02321902DB8000A1A92A /* sys_osx.cpp */,
-				834A02331902DB8000A1A92A /* sys.h */,
+				83CC0EC41902DF1F00BD47E8 /* base.h */,
+				83CC0EC51902DF1F00BD47E8 /* core.cpp */,
+				83CC0EC61902DF1F00BD47E8 /* core.h */,
+				83CC0EC71902DF1F00BD47E8 /* game.cpp */,
+				83CC0EC81902DF1F00BD47E8 /* stdafx.h */,
+				83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */,
+				83CC0ECA1902DF1F00BD47E8 /* sys.h */,
 				8386DB141902D69F00EFF3A3 /* Images.xcassets */,
-				8386DB031902D69F00EFF3A3 /* Supporting Files */,
 			);
 			path = spacecrashosx;
-			sourceTree = "<group>";
-		};
-		8386DB031902D69F00EFF3A3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8386DB041902D69F00EFF3A3 /* spacecrashosx-Info.plist */,
-				8386DB0A1902D69F00EFF3A3 /* spacecrashosx-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8386DB201902D69F00EFF3A3 /* spacecrashosxTests */ = {
-			isa = PBXGroup;
-			children = (
-				8386DB261902D69F00EFF3A3 /* spacecrashosxTests.m */,
-				8386DB211902D69F00EFF3A3 /* Supporting Files */,
-			);
-			path = spacecrashosxTests;
-			sourceTree = "<group>";
-		};
-		8386DB211902D69F00EFF3A3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8386DB221902D69F00EFF3A3 /* spacecrashosxTests-Info.plist */,
-				8386DB231902D69F00EFF3A3 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,24 +113,6 @@
 			productReference = 8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8386DB191902D69F00EFF3A3 /* spacecrashosxTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8386DB2D1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "spacecrashosxTests" */;
-			buildPhases = (
-				8386DB161902D69F00EFF3A3 /* Sources */,
-				8386DB171902D69F00EFF3A3 /* Frameworks */,
-				8386DB181902D69F00EFF3A3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8386DB1F1902D69F00EFF3A3 /* PBXTargetDependency */,
-			);
-			name = spacecrashosxTests;
-			productName = spacecrashosxTests;
-			productReference = 8386DB1A1902D69F00EFF3A3 /* spacecrashosxTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,11 +122,6 @@
 				CLASSPREFIX = CE;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Edson";
-				TargetAttributes = {
-					8386DB191902D69F00EFF3A3 = {
-						TestTargetID = 8386DAF81902D69F00EFF3A3;
-					};
-				};
 			};
 			buildConfigurationList = 8386DAF41902D69F00EFF3A3 /* Build configuration list for PBXProject "spacecrashosx" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -238,7 +137,6 @@
 			projectRoot = "";
 			targets = (
 				8386DAF81902D69F00EFF3A3 /* spacecrashosx */,
-				8386DB191902D69F00EFF3A3 /* spacecrashosxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,15 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834A02391902DB9200A1A92A /* data in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8386DB181902D69F00EFF3A3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8386DB251902D69F00EFF3A3 /* InfoPlist.strings in Resources */,
+				834A023B1902DC9600A1A92A /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,41 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834A02371902DB8000A1A92A /* sys_osx.cpp in Sources */,
-				834A02361902DB8000A1A92A /* stdafx.cpp in Sources */,
-				834A02341902DB8000A1A92A /* core.cpp in Sources */,
-				834A02351902DB8000A1A92A /* game.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8386DB161902D69F00EFF3A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8386DB271902D69F00EFF3A3 /* spacecrashosxTests.m in Sources */,
+				83CC0ECB1902DF1F00BD47E8 /* core.cpp in Sources */,
+				83CC0ECD1902DF1F00BD47E8 /* sys_osx.cpp in Sources */,
+				83CC0ECC1902DF1F00BD47E8 /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8386DB1F1902D69F00EFF3A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8386DAF81902D69F00EFF3A3 /* spacecrashosx */;
-			targetProxy = 8386DB1E1902D69F00EFF3A3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8386DB231902D69F00EFF3A3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8386DB241902D69F00EFF3A3 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8386DB281902D69F00EFF3A3 /* Debug */ = {
@@ -386,6 +248,7 @@
 				);
 				INFOPLIST_FILE = "spacecrashosx/spacecrashosx-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -406,49 +269,10 @@
 				);
 				INFOPLIST_FILE = "spacecrashosx/spacecrashosx-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		8386DB2E1902D69F00EFF3A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/spacecrashosx.app/Contents/MacOS/spacecrashosx";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "spacecrashosx/spacecrashosx-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "spacecrashosxTests/spacecrashosxTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		8386DB2F1902D69F00EFF3A3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/spacecrashosx.app/Contents/MacOS/spacecrashosx";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "spacecrashosx/spacecrashosx-Prefix.pch";
-				INFOPLIST_FILE = "spacecrashosxTests/spacecrashosxTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -469,15 +293,6 @@
 			buildConfigurations = (
 				8386DB2B1902D69F00EFF3A3 /* Debug */,
 				8386DB2C1902D69F00EFF3A3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8386DB2D1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "spacecrashosxTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8386DB2E1902D69F00EFF3A3 /* Debug */,
-				8386DB2F1902D69F00EFF3A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

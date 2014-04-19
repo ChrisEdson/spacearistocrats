@@ -1,4 +1,4 @@
-// game7.cpp
+// game9.cpp
 #include "stdafx.h"
 #include "base.h"
 #include "sys.h"
@@ -20,23 +20,15 @@
 #define ROCK_CRASH_ENERGY_LOSS 30.f
 #define MINE_CRASH_ENERGY_LOSS 80.f
 #define MAX_ENERGY 100.f
-#define MAX_FUEL 100.f
 #define ROCKET_SPEED 15.f
 #define MIN_TIME_BETWEEN_ROCKETS 1.f
-#define MIN_FUEL_FOR_HEAL MAX_FUEL/2.f
-#define FUEL_HEAL_PER_FRAME .2f
 #define ENERGY_HEAL_PER_FRAME .1f
-#define JUICE_FUEL 30.f
+#define JUICE_ENERGY 30.f
 
 #define MAIN_SHIP g_entities[MAINSHIP_ENTITY]
 
 #define ENERGY_BAR_W 60.f
 #define ENERGY_BAR_H 1500.f
-#define FUEL_BAR_W 60.f
-#define FUEL_BAR_H 1500.f
-#define CHUNK_W 40.f
-#define CHUNK_H 40.f
-#define MAX_CHUNKS 30
 
 #define START_ROCK_CHANCE_PER_PIXEL 1.f/1000.f
 #define EXTRA_ROCK_CHANCE_PER_PIXEL 0.f//1.f/2500000.f
@@ -51,8 +43,6 @@
 #define SHIP_TILT_FRICTION .1f
 #define SHIP_MAX_TILT 1.5f
 #define SHIP_HVEL_FRICTION .1f
-#define TILT_FUEL_COST .03f
-#define FRAME_FUEL_COST .01f
 
 #define GEN_IN_ADVANCE 400.f
 
@@ -62,11 +52,17 @@
 #define DYING_TIME 2.f
 #define VICTORY_TIME 8.f
 
+#define SCORE_JUICE 1000
+
 #define FPS 60.f
 #define FRAMETIME (1.f/FPS)
 
 #define SND_DEFAULT_VOL .7f
+#define MUSIC_SOUND_CHANNEL 0
 #define SHIP_ENGINE_SOUND_CHANNEL 1
+#define SHIP_ENGINE_VOLUME .7f
+#define SHIP_ENGINE_BASE_PITCH .6f
+#define SHIP_ENGINE_RANGE_PITCH .25f
 
 #define MENU_BKG_SCROLL_SPEED 10.f
 #define MAIN_MENU_TILESET T_TILES_R_ON_L
@@ -463,10 +459,15 @@ void DrawString(vec2 p0, const char string[], float charsize, rgba color)
 // Sound engine
 enum SoundId
 {
+    SND_MUSIC,
     SND_THUMP,
     SND_EXPLOSSION,
     SND_ENGINE,
-    SND_SUCCESS
+    SND_SUCCESS,
+    SND_SHOOT_ROCKET,
+    SND_GRAVITY_BOMB,
+    SND_TESLA_TOWER,
+    SND_ZZZT
 };
 
 struct Sound
@@ -477,10 +478,15 @@ struct Sound
 
 Sound sounds[] =
 {
+    { "data/09 - Overdrive Sex Machine v0_5.wav"  , 0 },
     { "data/410__tictacshutup__thump-1.wav"       , 0 },
     { "data/94185__nbs-dark__explosion.wav"       , 0 },
-    { "data/ffff.wav"                             , 0 },
-    { "data/171671__fins__success-1.wav"          , 0 }
+    { "data/jetwashloop.wav"                      , 0 },
+    { "data/171671__fins__success-1.wav"          , 0 },
+    { "data/missile_launch_2.wav"                 , 0 },
+    { "data/gravity_bomb.wav"                     , 0 },
+    { "data/tesla_tower.wav"                      , 0 },
+    { "data/zzzt.wav"                             , 0 }
 };
 
 void LoadSounds()
@@ -501,6 +507,16 @@ void PlaySound(SoundId id, float vol = SND_DEFAULT_VOL, float freq = 1.f)
         CORE_PlaySound(sounds[id].bufid, vol, freq);
 }
 
+void PlayMusic()
+{
+    CORE_PlayLoopSound(MUSIC_SOUND_CHANNEL, sounds[SND_MUSIC].bufid, 1.f, 1.f);
+}
+
+void StopMusic()
+{
+    CORE_StopLoopSound(MUSIC_SOUND_CHANNEL);
+}
+
 void PlayLoopSound (unsigned loopchannel, SoundId id, float vol, float pitch)
 {
     if (g_opt_sound_fx)
@@ -518,21 +534,11 @@ void SetLoopSoundParam (unsigned loopchannel, float vol, float pitch)
         CORE_SetLoopSoundParam(loopchannel, vol, pitch);
 }
 
-void UpdateSoundStatus()
-{
-    if (!g_opt_sound_fx)
-    {
-        CORE_SetLoopSoundParam(SHIP_ENGINE_SOUND_CHANNEL, 0.f, 1.f); // Stop engine
-    }
-    
-    // Pending music!
-}
-
 //=============================================================================
 // Particle systems manager
 enum PSType
 {
-    PST_NULL, PST_WATER, PST_FIRE, PST_SMOKE, PST_DUST, PST_GOLD
+    PST_NULL, PST_WATER, PST_FIRE, PST_SMOKE, PST_DUST, PST_GOLD, PST_EXPLOSSION
 };
 
 struct PSDef
@@ -554,11 +560,12 @@ PSDef psdefs[] =
 {
     //            GFX          ADD     N  DTH  FORCE               rndPos SPEED           rndSPD  Rmin  Rmax  clr                       clr-rand
     /* null  */ { },
-    /* water */ { T_PARTICLE,  true ,  4, 150, vmake(0.f, -0.025f),  4.f,  vmake(0.f, 0.45f), .1f,  8.f, 10.f, RGBA( 64,  64, 255, 128), RGBA(0, 0, 0, 0) },
-    /* fire  */ { T_PARTICLE,  true ,  8,  60, vmake(0.f, -0.75f),  4.f,  vmake(0.f,+0.25f), .1f,  8.f, 16.f, RGBA(255, 192, 128, 128), RGBA(0, 0, 0, 0) },
-    /* smoke */ { T_PARTICLE,  false,  2, 250, vmake(0.f,  0.05f) ,  4.f,  vmake(0.f, 0.f)  , .4f,  5.f, 12.f, RGBA( 64,  64,  64, 192), RGBA(0, 0, 0, 0) },
-    /* dust  */ { T_PARTICLE,  false,  4, 100, vmake(0.f,  0.05f) ,  4.f,  vmake(0.f, 0.f)  , .4f,  3.f,  6.f, RGBA(192, 192, 192, 192), RGBA(0, 0, 0, 0) },
-    /* gold  */ { T_PARTICLE,  true ,  1,  50, vmake(0.f,  0.f  ) ,  4.f,  vmake(0.f, 0.f)  , .3f,  3.f,  6.f, RGBA(192, 192,  64, 192), RGBA(0, 0, 0, 0) },
+    /* water */ { T_PARTICLE,  true ,  4, 150, vmake(0.f, -0.025f),  4.f,  vmake(0.f, 0.45f), .1f,  8.f, 10.f, RGBA( 64,  64, 255, 128), RGBA( 0,  0,  0,  0) },
+    /* fire  */ { T_PARTICLE,  true ,  8,  60, vmake(0.f, -0.75f),   4.f,  vmake(0.f,+0.25f), .1f,  8.f, 16.f, RGBA(255, 192, 128, 128), RGBA( 0,  0,  0,  0) },
+    /* smoke */ { T_PARTICLE,  false,  2, 250, vmake(0.f,  0.05f) ,  4.f,  vmake(0.f, 0.f)  , .4f,  5.f, 12.f, RGBA( 64,  64,  64, 192), RGBA( 0,  0,  0,  0) },
+    /* dust  */ { T_PARTICLE,  false,  4, 100, vmake(0.f,  0.05f) ,  4.f,  vmake(0.f, 0.f)  , .4f,  3.f,  6.f, RGBA(192, 192, 192, 192), RGBA( 0,  0,  0,  0) },
+    /* gold  */ { T_PARTICLE,  true ,  1,  50, vmake(0.f,  0.f  ) ,  4.f,  vmake(0.f, 0.f)  , .3f,  3.f,  6.f, RGBA(192, 192,  64, 192), RGBA( 0,  0,  0,  0) },
+    /* explo */ { T_PARTICLE,  true , 32, 200, vmake(0.f,  0.f  ) ,  5.f,  vmake(0.f,10.f)  ,9.0f, 10.f, 20.f, RGBA(255, 255, 255, 255), RGBA(30, 30, 30, 30) },
 };
 
 
@@ -753,6 +760,7 @@ enum GameState { GS_PLAYING, GS_DYING, GS_STARTING, GS_VICTORY, GS_MAIN_MENU, GS
 GameState g_gs = GS_STARTING;
 float g_gs_timer = 0.f;
 float g_current_race_pos = 0.f;
+float g_current_extra_score = 0; // Add to current-race-pos to get the real total score
 float g_camera_offset = 0.f;
 float g_rock_chance = START_ROCK_CHANCE_PER_PIXEL;
 float g_time_from_last_rocket = 0.f;
@@ -798,6 +806,35 @@ LevelDesc LevelDescs[NUM_LEVELS] = {
 };
 
 //-----------------------------------------------------------------------------
+void LoadData()
+{
+    int fd = SYS_OpenConfigFile(false);
+    if (fd >= 0)
+    {
+        read(fd, &g_unlocked_level, sizeof(int));
+        read(fd, &g_opt_music, sizeof(bool));
+        read(fd, &g_opt_sound_fx, sizeof(bool));
+        close(fd);
+        
+        if (g_unlocked_level < 0)            g_unlocked_level = 0;
+        if (g_unlocked_level > NUM_LEVELS-1) g_unlocked_level = NUM_LEVELS-1;
+    }
+}
+
+//-----------------------------------------------------------------------------
+void SaveData()
+{
+    int fd = SYS_OpenConfigFile(true);
+    if (fd >= 0)
+    {
+        write(fd, &g_unlocked_level, sizeof(int));
+        write(fd, &g_opt_music, sizeof(bool));
+        write(fd, &g_opt_sound_fx, sizeof(bool));
+        close(fd);
+    }
+}
+
+//-----------------------------------------------------------------------------
 // Background generation
 #define TILE_WIDTH 120//96//75
 #define TILE_HEIGHT 140//112//58
@@ -805,8 +842,9 @@ LevelDesc LevelDescs[NUM_LEVELS] = {
 #define TILES_DOWN   (1+(int)((G_HEIGHT+TILE_HEIGHT-1)/TILE_HEIGHT))
 #define RUNNING_ROWS (2 * TILES_DOWN)
 // Bottom to top!
-byte  Terrain[RUNNING_ROWS][TILES_ACROSS];
+byte  Terrain[RUNNING_ROWS][TILES_ACROSS] = {0};
 TexId TileMap[RUNNING_ROWS][TILES_ACROSS];
+float g_alt_terrain_chance = .5f;
 
 int g_last_generated = -1;
 
@@ -817,15 +855,10 @@ void GenTerrain(float upto)
     // Generate random terrain types
     for (int i = g_last_generated+1; i <= last_required_row; i++)
     {
-        float advance = (i * TILE_HEIGHT) / LevelDescs[g_current_level].level_length;
-        float chance = LevelDescs[g_current_level].level_start_chance_alt_terrain
-        + advance * (LevelDescs[g_current_level].level_end_chance_alt_terrain
-                     - LevelDescs[g_current_level].level_start_chance_alt_terrain);
-        
         int mapped_row = UMod(i, RUNNING_ROWS);
         
         for (int j = 0; j < TILES_ACROSS; j++)
-            Terrain[mapped_row][j] = (CORE_RandChance(chance) & 1);
+            Terrain[mapped_row][j] = (CORE_RandChance(g_alt_terrain_chance) & 1);
     }
     
     // Calculate the tiles
@@ -878,7 +911,6 @@ struct Entity
     vec2   vel;
     float  radius;
     float  energy;
-    float  fuel;
     float  tilt;
     float  gfxscale;
     TexId  gfx;
@@ -903,7 +935,6 @@ int InsertEntity(EType type, vec2 pos, vec2 vel, float radius, TexId gfx, bool h
             g_entities[i].radius       = radius;
             g_entities[i].gfx          = gfx;
             g_entities[i].energy       = MAX_ENERGY;
-            g_entities[i].fuel         = MAX_FUEL;
             g_entities[i].tilt         = 0.f;
             g_entities[i].gfxscale     = 1.f;
             g_entities[i].gfxadditive  = additive;
@@ -938,6 +969,12 @@ vec2 g_last_conditioned = vmake(0.f,0.f);
 
 void GenNextElements()
 {
+    float advance = g_camera_offset / LevelDescs[g_current_level].level_length;
+    if (advance > 1.f) advance = 1.f;
+    g_alt_terrain_chance = LevelDescs[g_current_level].level_start_chance_alt_terrain
+    + advance * (LevelDescs[g_current_level].level_end_chance_alt_terrain
+                 - LevelDescs[g_current_level].level_start_chance_alt_terrain);
+    
     // Called every game loop, but only does work when we are close to the next "challenge area"
     if (g_current_race_pos + G_HEIGHT > g_next_challenge_area)
     {
@@ -1028,6 +1065,7 @@ void ResetNewGame(int level)
     g_next_challenge_area = FIRST_CHALLENGE;
     g_last_conditioned = vmake(.5f * G_WIDTH, 0.f);
     g_current_race_pos = 0.f;
+    g_current_extra_score = 0;
     g_camera_offset = 0.f;
     g_rock_chance = START_ROCK_CHANCE_PER_PIXEL;
     g_gs = GS_STARTING;
@@ -1039,7 +1077,7 @@ void ResetNewGame(int level)
         g_entities[i].type = E_NULL;
     InsertEntity(E_MAIN, vmake(G_WIDTH/2.0, G_HEIGHT/8.f), vmake(0.f, SHIP_START_SPEED), MAINSHIP_RADIUS, T_SHIP_C, true);
     
-    PlayLoopSound(SHIP_ENGINE_SOUND_CHANNEL, SND_ENGINE, 0.7f, 0.3f);
+    PlayLoopSound(SHIP_ENGINE_SOUND_CHANNEL, SND_ENGINE, SHIP_ENGINE_VOLUME, SHIP_ENGINE_BASE_PITCH);
     
     ResetPSystems();
     
@@ -1057,14 +1095,43 @@ void FinishGame()
     g_gs = GS_MAIN_MENU;
     g_gs_timer = 0.f;
     g_last_generated = -1;
+    g_alt_terrain_chance = .5f;
     for (int i = 0; i < MAX_ENTITIES; i++)
         g_entities[i].type = E_NULL;
     ResetPSystems();
     StopLoopSound(SHIP_ENGINE_SOUND_CHANNEL);
 }
 
+//-----------------------------------------------------------------------------
+void PauseGameSounds()
+{
+    StopLoopSound(SHIP_ENGINE_SOUND_CHANNEL);
+}
+
+//-----------------------------------------------------------------------------
+void ResumeGameSounds()
+{
+    if (g_gs != GS_MAIN_MENU)
+        PlayLoopSound(SHIP_ENGINE_SOUND_CHANNEL, SND_ENGINE, SHIP_ENGINE_VOLUME, SHIP_ENGINE_BASE_PITCH);
+}
+
+//-----------------------------------------------------------------------------
+void UpdateSoundStatus()
+{
+    if (g_opt_sound_fx)
+        ResumeGameSounds();
+    else
+        PauseGameSounds();
+    
+    if (g_opt_music)
+        PlayMusic();
+    else
+        StopMusic();
+}
+
 //=============================================================================
 // Menus
+#define MENU_TITLE_CHAR_SIZE 90.f
 #define MENU_CHAR_SIZE 60.f
 #define MENU_SPACE_BETWEEN_LINES 20.f
 #define MENU_COLOR_UNSELECTED makergba(.8f, .8f, .8f, .8f)
@@ -1072,7 +1139,7 @@ void FinishGame()
 enum MenuId
 {
     M_NONE,
-    M_MAIN, M_LEVELS, M_HELP, M_MAIN_OPTIONS, M_CONFIRM_EXIT,
+    M_MAIN, M_LEVELS, M_HELP, M_HELP2, M_MAIN_OPTIONS, M_CONFIRM_EXIT,
     M_INGAME, M_INGAME_OPTIONS, M_CONFIRM_CANCEL,
     // Pseudo-menus
     M_PASSIVE, M_ACTION_EXIT, M_ACTION_CANCEL, M_ACTION_PLAY, M_ACTION_RESUME, M_ACTION_TOGGLE_MUSIC, M_ACTION_TOGGLE_SOUND_FX
@@ -1112,20 +1179,33 @@ MenuDef g_MenuDefs[] = {
             { "LIMBO",            M_ACTION_PLAY, 8},
             { "BACK",             M_MAIN,        0}}
     },
-    /*M_HELP*/           { "", 15,
+    /*M_HELP*/           { "", 11,
         {{ "WELCOME TO",       M_PASSIVE, 0},
             { "SPACECRASH!",      M_PASSIVE, 0},
+            { "",                 M_PASSIVE, 0},
             { "STEER YOUR SHIP,", M_PASSIVE, 0},
             { "AVOID ROCKS,",     M_PASSIVE, 0},
             { "MINES, AND",       M_PASSIVE, 0},
             { "ENEMY DRONES",     M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
-            { "GAME BY JONBHO",   M_PASSIVE, 0},
-            { "GFX BY DAN COOK",  M_PASSIVE, 0},
-            { "MUSIC AND FX BY",  M_PASSIVE, 0},
-            { "(---)",            M_PASSIVE, 0},
-            { "",                 M_PASSIVE, 0},
             { "WWW.JONBHO.NET",   M_PASSIVE, 0},
+            { "",                 M_PASSIVE, 0},
+            { "NEXT",             M_HELP2,   0}}
+    },
+    /*M_HELP2*/           { "", 15,
+        {{ "GAME BY JONBHO",   M_PASSIVE, 0},
+            { "",                 M_PASSIVE, 0},
+            { "GFX BY DAN COOK",  M_PASSIVE, 0},
+            { "",                 M_PASSIVE, 0},
+            { "MUSIC BY",         M_PASSIVE, 0},
+            { "FOXSYNERGY",       M_PASSIVE, 0},
+            { "",                 M_PASSIVE, 0},
+            { "SOUND FX BY:",     M_PASSIVE, 0},
+            { "",                 M_PASSIVE, 0},
+            { "STEPHEN CAMERON",  M_PASSIVE, 0},
+            { "TICTACSHUTUP",     M_PASSIVE, 0},
+            { "FINS",             M_PASSIVE, 0},
+            { "NBS DARK",         M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "BACK",             M_MAIN,    1}}
     },
@@ -1159,10 +1239,10 @@ MenuId g_current_menu = M_HELP;
 int    g_current_menu_option = 0;
 
 //-----------------------------------------------------------------------------
-void DrawCenteredLine(float y, char text[], rgba color)
+void DrawCenteredLine(float y, char text[], rgba color, float charsize)
 {
-    float w = strlen(text) * MENU_CHAR_SIZE;
-    DrawString(vmake(.5f * G_WIDTH - .5f * w, y), text, MENU_CHAR_SIZE, color);
+    float w = strlen(text) * charsize;
+    DrawString(vmake(.5f * G_WIDTH - .5f * w, y), text, charsize, color);
 }
 
 //-----------------------------------------------------------------------------
@@ -1187,7 +1267,7 @@ void RenderMenu()
     
     if (has_title)
     {
-        DrawCenteredLine(current_y, g_MenuDefs[g_current_menu].title, MENU_COLOR_UNSELECTED);
+        DrawCenteredLine(current_y, g_MenuDefs[g_current_menu].title, MENU_COLOR_UNSELECTED, MENU_CHAR_SIZE);
         current_y -= MENU_CHAR_SIZE + MENU_SPACE_BETWEEN_LINES;
     }
     
@@ -1214,16 +1294,20 @@ void RenderMenu()
             strcpy(text, g_MenuDefs[g_current_menu].entries[i].text);
         
         if (i != g_current_menu_option)
-            DrawCenteredLine(current_y, text, MENU_COLOR_UNSELECTED);
+            DrawCenteredLine(current_y, text, MENU_COLOR_UNSELECTED, MENU_CHAR_SIZE);
         else
-            DrawCenteredLine(current_y, text, MENU_COLOR_SELECTED);
+            DrawCenteredLine(current_y, text, MENU_COLOR_SELECTED, MENU_CHAR_SIZE);
         
         current_y -= MENU_CHAR_SIZE + MENU_SPACE_BETWEEN_LINES;
     }
+    
+    // Main menu adornments
+    if (g_current_menu == M_MAIN)
+    {
+        DrawCenteredLine(7.f/9.f * G_HEIGHT, "SPACECRASH", makergba(1.f,.8f,.1f,1.f), MENU_TITLE_CHAR_SIZE);
+        DrawCenteredLine(1.f/8.f * G_HEIGHT, "~ 2013 JONBHO", makergba(.8f,.8f,1.f,1.f), MENU_CHAR_SIZE);
+    }
 }
-
-bool  g_music = true;
-bool  g_sound_fx = true;
 
 //-----------------------------------------------------------------------------
 void EnterMenu(GameState gs)
@@ -1267,6 +1351,7 @@ void DoMenuAction(MenuId action, int ix)
             break;
             
         case M_ACTION_RESUME:
+            ResumeGameSounds();
             g_gs = GS_PLAYING; // Return to playing
             break;
             
@@ -1361,32 +1446,31 @@ void Render()
     
     RenderPSystems(vmake(0.f,-g_camera_offset));
     
-    if (g_gs != GS_VICTORY)
+    if (g_gs != GS_VICTORY && g_gs != GS_MAIN_MENU && g_gs != GS_INGAME_MENU)
     {
         // Draw UI
         float energy_ratio = MAIN_SHIP.energy / MAX_ENERGY;
         CORE_RenderCenteredSprite(
                                   vmake(ENERGY_BAR_W/2.f, energy_ratio * ENERGY_BAR_H / 2.f),
                                   vmake(ENERGY_BAR_W, ENERGY_BAR_H * energy_ratio),
-                                  Tex(T_ENERGY), COLOR_WHITE, true);
-        
-        float fuel_ratio = MAIN_SHIP.fuel / MAX_FUEL;
-        CORE_RenderCenteredSprite(
-                                  vmake(G_WIDTH - FUEL_BAR_W/2.f, fuel_ratio * FUEL_BAR_H / 2.f),
-                                  vmake(FUEL_BAR_W, FUEL_BAR_H * fuel_ratio),
                                   Tex(T_FUEL), COLOR_WHITE, true);
         
-        // Show your progression in the level
-        int num_chunks = (int)((g_current_race_pos/LevelDescs[g_current_level].level_length) * MAX_CHUNKS);
-        for (int i = 0; i < num_chunks; i++)
-            CORE_RenderCenteredSprite(
-                                      vmake(G_WIDTH - 100.f, 50.f + i * 50.f),
-                                      vmake(CHUNK_W, CHUNK_H),
-                                      Tex(T_PEARL));
+        char score[100];
+        sprintf(score, "%6.6d", (int)(10 * (int)(g_current_race_pos/100.f) + g_current_extra_score));
+        DrawString(vmake(.6f * G_WIDTH, .95f * G_HEIGHT), score, MENU_CHAR_SIZE, COLOR_WHITE);
     }
     
     if (g_gs == GS_MAIN_MENU || g_gs == GS_INGAME_MENU)
         RenderMenu();
+    
+    if (g_gs == GS_STARTING)
+        DrawCenteredLine(.5f*G_HEIGHT, "GET READY", COLOR_WHITE, MENU_CHAR_SIZE);
+    
+    if (g_gs == GS_VICTORY)
+        DrawCenteredLine(.5f*G_HEIGHT, "MISSION COMPLETE", COLOR_WHITE, MENU_CHAR_SIZE);
+    
+    if (g_gs == GS_DYING)
+        DrawCenteredLine(.5f*G_HEIGHT, "MALFUNCTION", COLOR_WHITE, MENU_CHAR_SIZE);
 }
 
 //-----------------------------------------------------------------------------
@@ -1395,25 +1479,13 @@ void Run()
     if (g_gs != GS_INGAME_MENU && g_gs != GS_MAIN_MENU)
     {
         // Control main ship
-        if (g_gs == GS_VICTORY || g_gs == GS_STARTING)
+        if (g_gs == GS_VICTORY || g_gs == GS_STARTING || g_gs == GS_PLAYING)
         {
             if (MAIN_SHIP.vel.y < SHIP_CRUISE_SPEED)
                 MAIN_SHIP.vel.y = SAFEADD(MAIN_SHIP.vel.y, SHIP_INC_SPEED, SHIP_CRUISE_SPEED);
-            
-            MAIN_SHIP.fuel = SAFESUB(MAIN_SHIP.fuel, FRAME_FUEL_COST);
         }
         
-        SetLoopSoundParam(SHIP_ENGINE_SOUND_CHANNEL, 0.7f, 0.4f + 0.2f * (MAIN_SHIP.vel.y - SHIP_START_SPEED)/(SHIP_CRUISE_SPEED - SHIP_START_SPEED));
-        
-        // Heal main ship
-        if (g_gs != GS_DYING)
-        {
-            if (MAIN_SHIP.energy < MAX_ENERGY && MAIN_SHIP.fuel >= MIN_FUEL_FOR_HEAL)
-            {
-                MAIN_SHIP.energy = SAFEADD(MAIN_SHIP.energy, ENERGY_HEAL_PER_FRAME, MAX_ENERGY);
-                MAIN_SHIP.fuel   = SAFESUB(MAIN_SHIP.fuel, FUEL_HEAL_PER_FRAME);
-            }
-        }
+        SetLoopSoundParam(SHIP_ENGINE_SOUND_CHANNEL, SHIP_ENGINE_VOLUME, SHIP_ENGINE_BASE_PITCH + SHIP_ENGINE_RANGE_PITCH * (MAIN_SHIP.vel.y - SHIP_START_SPEED)/(SHIP_CRUISE_SPEED - SHIP_START_SPEED));
         
         // Move entities
         for (int i = MAX_ENTITIES - 1; i >= 0; i--)
@@ -1478,12 +1550,15 @@ void Run()
                                 break;
                                 
                             case E_JUICE:
-                                MAIN_SHIP.fuel = SAFEADD(MAIN_SHIP.fuel, JUICE_FUEL, MAX_FUEL);
+                                MAIN_SHIP.energy = SAFEADD(MAIN_SHIP.energy, JUICE_ENERGY, MAX_ENERGY);
                                 KillEntity(i);
+                                g_current_extra_score += SCORE_JUICE;
+                                PlaySound(SND_ZZZT);
                                 break;
                                 
                             case E_MINE:
                                 PlaySound(SND_EXPLOSSION);
+                                CreatePSystem(PST_EXPLOSSION, g_entities[i].pos, vmake(0.f,0.f));
                                 MAIN_SHIP.energy = SAFESUB(MAIN_SHIP.energy, MINE_CRASH_ENERGY_LOSS);
                                 MAIN_SHIP.vel.y = SHIP_START_SPEED;
                                 KillEntity(i);
@@ -1513,15 +1588,9 @@ void Run()
                         {
                             if (vlen2(vsub(g_entities[i].pos, g_entities[j].pos)) < CORE_FSquare(g_entities[i].radius+g_entities[j].radius))
                             {
-                                // Rocket hit the target!
-                                switch (g_entities[j].type)
-                                {
-                                    case E_MINE:
-                                        PlaySound(SND_EXPLOSSION);
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                // Rocket hit some target!
+                                PlaySound(SND_EXPLOSSION);
+                                CreatePSystem(PST_EXPLOSSION, g_entities[i].pos, vmake(0.f,0.f));
                                 
                                 KillEntity(i);
                                 KillEntity(j);
@@ -1561,7 +1630,8 @@ void Run()
                 g_gs_timer = 0.f;
                 MAIN_SHIP.gfxadditive = true;
                 PlaySound(SND_SUCCESS);
-                g_unlocked_level = g_current_level + 1;
+                g_unlocked_level = MAX(g_unlocked_level, g_current_level + 1);
+                SaveData();
             }
         }
     }
@@ -1586,11 +1656,12 @@ void Run()
             break;
             
         case GS_PLAYING:
-            if (MAIN_SHIP.energy <= 0.f || MAIN_SHIP.fuel <= 0.f)
+            if (MAIN_SHIP.energy <= 0.f)
             {
                 g_gs = GS_DYING;
                 g_gs_timer = 0.f;
                 MAIN_SHIP.gfx = T_SHIP_RR;
+                PlaySound(SND_GRAVITY_BOMB);
             }
             break;
             
@@ -1629,6 +1700,7 @@ void ProcessInputInGame()
             
             g_entities[e].psystem = CreatePSystem(PST_FIRE, MAIN_SHIP.pos, vmake(0.f,0.f));
             g_entities[e].psystem_off = vmake(0.f, -120.f);
+            PlaySound(SND_SHOOT_ROCKET);
         }
         
         bool up    = SYS_KeyPressed(SYS_KEY_UP);
@@ -1639,12 +1711,10 @@ void ProcessInputInGame()
         // Left-right movement
         if (left && !right)
         {
-            MAIN_SHIP.fuel = SAFESUB(MAIN_SHIP.fuel, TILT_FUEL_COST);
             MAIN_SHIP.tilt -= SHIP_TILT_INC;
         }
         if (right && !left)
         {
-            MAIN_SHIP.fuel = SAFESUB(MAIN_SHIP.fuel, TILT_FUEL_COST);
             MAIN_SHIP.tilt += SHIP_TILT_INC;
         }
         if (!left && !right)
@@ -1657,10 +1727,11 @@ void ProcessInputInGame()
         MAIN_SHIP.vel.x *= (1.f - SHIP_HVEL_FRICTION);
         
         // Accelerate/slowdown
-        if (up   && !down) MAIN_SHIP.vel.y += SHIP_INC_SPEED;
-        if (down && !up)   MAIN_SHIP.vel.y -= SHIP_INC_SPEED;
-        if (MAIN_SHIP.vel.y > SHIP_MAX_SPEED) MAIN_SHIP.vel.y = SHIP_MAX_SPEED;
-        if (MAIN_SHIP.vel.y < SHIP_MIN_SPEED) MAIN_SHIP.vel.y = SHIP_MIN_SPEED;
+        // Removed for gameplay reasons!
+        //if (up   && !down) MAIN_SHIP.vel.y += SHIP_INC_SPEED;
+        //if (down && !up)   MAIN_SHIP.vel.y -= SHIP_INC_SPEED;
+        //if (MAIN_SHIP.vel.y > SHIP_MAX_SPEED) MAIN_SHIP.vel.y = SHIP_MAX_SPEED;
+        //if (MAIN_SHIP.vel.y < SHIP_MIN_SPEED) MAIN_SHIP.vel.y = SHIP_MIN_SPEED;
         
         float tilt = MAIN_SHIP.tilt;
         if      (tilt < -.6f * SHIP_MAX_TILT) MAIN_SHIP.gfx = T_SHIP_LL;
@@ -1682,7 +1753,10 @@ void ProcessInputInGame()
     else if (SYS_KeyPressed('9')) ResetNewGame(8);
     
     if (g_just_pressed_esc)
+    {
+        PauseGameSounds();
         EnterMenu(GS_INGAME_MENU);
+    }
 }
 
 //-----------------------------------------------------------------------------
@@ -1706,16 +1780,19 @@ void ProcessInput()
     g_was_pressed_space = SYS_KeyPressed(SYS_KEY_SPACE);
 }
 
-
 //=============================================================================
 // Main
 int Main(void)
 {
+    LoadData();
+    
     // Start things up & load resources ---------------------------------------------------
     CORE_InitSound();
     LoadTextures();
     LoadSounds();
     PrepareFont();
+    if (g_opt_music)
+        PlayMusic();
     
     //ResetNewGame(0);
     EnterMenu(GS_MAIN_MENU);
@@ -1741,6 +1818,9 @@ int Main(void)
         g_time += FRAMETIME;
     }
     
+    SaveData();
+    
+    StopMusic();
     UnloadSounds();
     UnloadTextures();
     CORE_EndSound();

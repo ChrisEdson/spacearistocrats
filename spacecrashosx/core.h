@@ -11,7 +11,7 @@ inline float    CORE_FSquare(float f) { return f * f; }
 //-----------------------------------------------------------------------------
 inline int UMod(int ix, int n)
 {
-  return (int) ((unsigned)ix % (unsigned)n);
+    return (int) ((unsigned)ix % (unsigned)n);
 }
 
 //-----------------------------------------------------------------------------
