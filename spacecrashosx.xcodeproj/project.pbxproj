@@ -96,9 +96,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8386DAF81902D69F00EFF3A3 /* spacecrashosx */ = {
+		8386DAF81902D69F00EFF3A3 /* Spacedicks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "spacecrashosx" */;
+			buildConfigurationList = 8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "Spacedicks" */;
 			buildPhases = (
 				8386DAF51902D69F00EFF3A3 /* Sources */,
 				8386DAF61902D69F00EFF3A3 /* Frameworks */,
@@ -108,7 +108,7 @@
 			);
 			dependencies = (
 			);
-			name = spacecrashosx;
+			name = Spacedicks;
 			productName = spacecrashosx;
 			productReference = 8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */;
 			productType = "com.apple.product-type.application";
@@ -136,7 +136,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8386DAF81902D69F00EFF3A3 /* spacecrashosx */,
+				8386DAF81902D69F00EFF3A3 /* Spacedicks */,
 			);
 		};
 /* End PBXProject section */
@@ -288,7 +288,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "spacecrashosx" */ = {
+		8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "Spacedicks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8386DB2B1902D69F00EFF3A3 /* Debug */,
