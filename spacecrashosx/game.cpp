@@ -385,7 +385,7 @@ GLuint Tex(TexId id)
 // Font support
 #define FONTDEF_ROWS 8
 #define FONTDEF_COLS 8
-#define MAX_FONT_CHARDEFS 256
+#define MAX_FONT_CHARDEFS 255
 #define FONTDEF_CHAR_WIDTH (16.f/128.f)
 #define FONTDEF_CHAR_HEIGHT (16.f/128.f)
 #define FONT_CHAR_WIDTH 16.f
@@ -1239,7 +1239,7 @@ MenuId g_current_menu = M_HELP;
 int    g_current_menu_option = 0;
 
 //-----------------------------------------------------------------------------
-void DrawCenteredLine(float y, char text[], rgba color, float charsize)
+void DrawCenteredLine(float y, const char text[], rgba color, float charsize)
 {
     float w = strlen(text) * charsize;
     DrawString(vmake(.5f * G_WIDTH - .5f * w, y), text, charsize, color);
@@ -1704,8 +1704,8 @@ void ProcessInputInGame()
             PlaySound(SND_SHOOT_ROCKET);
         }
         
-        bool up    = SYS_KeyPressed(SYS_KEY_UP);
-        bool down  = SYS_KeyPressed(SYS_KEY_DOWN);
+//        bool up    = SYS_KeyPressed(SYS_KEY_UP);
+//        bool down  = SYS_KeyPressed(SYS_KEY_DOWN);
         bool left  = SYS_KeyPressed(SYS_KEY_LEFT);
         bool right = SYS_KeyPressed(SYS_KEY_RIGHT);
         
