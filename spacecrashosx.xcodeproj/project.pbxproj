@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spacecrashosx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8386DAF91902D69F00EFF3A3 /* Space Aristocrat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Aristocrat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8386DB141902D69F00EFF3A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8386DB381902D75400EFF3A3 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -61,7 +61,7 @@
 		8386DAFA1902D69F00EFF3A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */,
+				8386DAF91902D69F00EFF3A3 /* Space Aristocrat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,9 +96,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8386DAF81902D69F00EFF3A3 /* Spacedicks */ = {
+		8386DAF81902D69F00EFF3A3 /* Space Aristocrat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "Spacedicks" */;
+			buildConfigurationList = 8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "Space Aristocrat" */;
 			buildPhases = (
 				8386DAF51902D69F00EFF3A3 /* Sources */,
 				8386DAF61902D69F00EFF3A3 /* Frameworks */,
@@ -108,9 +108,9 @@
 			);
 			dependencies = (
 			);
-			name = Spacedicks;
+			name = "Space Aristocrat";
 			productName = spacecrashosx;
-			productReference = 8386DAF91902D69F00EFF3A3 /* spacecrashosx.app */;
+			productReference = 8386DAF91902D69F00EFF3A3 /* Space Aristocrat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -136,7 +136,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8386DAF81902D69F00EFF3A3 /* Spacedicks */,
+				8386DAF81902D69F00EFF3A3 /* Space Aristocrat */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +248,7 @@
 				);
 				INFOPLIST_FILE = "spacecrashosx/spacecrashosx-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -269,6 +270,7 @@
 				);
 				INFOPLIST_FILE = "spacecrashosx/spacecrashosx-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,7 +290,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "Spacedicks" */ = {
+		8386DB2A1902D69F00EFF3A3 /* Build configuration list for PBXNativeTarget "Space Aristocrat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8386DB2B1902D69F00EFF3A3 /* Debug */,

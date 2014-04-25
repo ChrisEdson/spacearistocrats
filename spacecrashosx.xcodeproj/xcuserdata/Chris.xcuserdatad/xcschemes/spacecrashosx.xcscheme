@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8386DAF81902D69F00EFF3A3"
-               BuildableName = "spacecrashosx.app"
-               BlueprintName = "Spacedicks"
+               BuildableName = "Space Aristocrat.app"
+               BlueprintName = "Space Aristocrat"
                ReferencedContainer = "container:spacecrashosx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8386DAF81902D69F00EFF3A3"
-            BuildableName = "spacecrashosx.app"
-            BlueprintName = "Spacedicks"
+            BuildableName = "Space Aristocrat.app"
+            BlueprintName = "Space Aristocrat"
             ReferencedContainer = "container:spacecrashosx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8386DAF81902D69F00EFF3A3"
-            BuildableName = "spacecrashosx.app"
-            BlueprintName = "Spacedicks"
+            BuildableName = "Space Aristocrat.app"
+            BlueprintName = "Space Aristocrat"
             ReferencedContainer = "container:spacecrashosx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8386DAF81902D69F00EFF3A3"
-            BuildableName = "spacecrashosx.app"
-            BlueprintName = "Spacedicks"
+            BuildableName = "Space Aristocrat.app"
+            BlueprintName = "Space Aristocrat"
             ReferencedContainer = "container:spacecrashosx.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
