@@ -15,6 +15,7 @@
 		83CC0ECC1902DF1F00BD47E8 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC71902DF1F00BD47E8 /* game.cpp */; };
 		83CC0ECD1902DF1F00BD47E8 /* sys_osx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */; };
 		83CC0ECF1902E26000BD47E8 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 83CC0ECE1902E26000BD47E8 /* data */; };
+		83E0B6C6190ACCFD0075ABE8 /* Space Aristocrat.app in Resources */ = {isa = PBXBuildFile; fileRef = 83E0B6C5190ACCFD0075ABE8 /* Space Aristocrat.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		83CC0EC91902DF1F00BD47E8 /* sys_osx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sys_osx.cpp; sourceTree = "<group>"; };
 		83CC0ECA1902DF1F00BD47E8 /* sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sys.h; sourceTree = "<group>"; };
 		83CC0ECE1902E26000BD47E8 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		83E0B6C5190ACCFD0075ABE8 /* Space Aristocrat.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = "Space Aristocrat.app"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		8386DAF01902D69F00EFF3A3 = {
 			isa = PBXGroup;
 			children = (
+				83E0B6C5190ACCFD0075ABE8 /* Space Aristocrat.app */,
 				8386DB021902D69F00EFF3A3 /* spacecrashosx */,
 				8386DAFB1902D69F00EFF3A3 /* Frameworks */,
 				8386DAFA1902D69F00EFF3A3 /* Products */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83CC0ECF1902E26000BD47E8 /* data in Resources */,
+				83E0B6C6190ACCFD0075ABE8 /* Space Aristocrat.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
