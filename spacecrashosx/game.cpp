@@ -1,4 +1,4 @@
-// game9.cpp
+// game.cpp
 #include "stdafx.h"
 #include "base.h"
 #include "sys.h"
@@ -1181,7 +1181,7 @@ MenuDef g_MenuDefs[] = {
     },
     /*M_HELP*/           { "", 11,
         {{ "WELCOME TO",       M_PASSIVE, 0},
-            { "SPACEDICKS!",      M_PASSIVE, 0},
+            { "SPACE ARISTOCRAT!",      M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "STEER YOUR SHIP,", M_PASSIVE, 0},
             { "AVOID ROCKS,",     M_PASSIVE, 0},
@@ -1198,11 +1198,11 @@ MenuDef g_MenuDefs[] = {
             { "GFX BY CHRIS",  M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
             { "MUSIC BY",         M_PASSIVE, 0},
-            { "??? CHRIS ???",       M_PASSIVE, 0},
+            { "CHRIS",       M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
-            { "SOUND FX BY:",     M_PASSIVE, 0},
+            { "",     M_PASSIVE, 0},
             { "",                 M_PASSIVE, 0},
-            { "CHRIS",  M_PASSIVE, 0},
+            { "",  M_PASSIVE, 0},
             { "",     M_PASSIVE, 0},
             { "",             M_PASSIVE, 0},
             { "",         M_PASSIVE, 0},
@@ -1214,7 +1214,7 @@ MenuDef g_MenuDefs[] = {
             { "SOUND FX: ON",     M_ACTION_TOGGLE_SOUND_FX, 1},
             { "BACK",             M_MAIN, 2}},
     },
-    /*M_CONFIRM_EXIT*/   { "GAYING OUT?", 2,
+    /*M_CONFIRM_EXIT*/   { "NOT MAN ENOUGH?", 2,
         {{ "EXIT",             M_ACTION_EXIT, 0},
             { "GO BACK",          M_MAIN, 3}}
     },
@@ -1228,7 +1228,7 @@ MenuDef g_MenuDefs[] = {
             { "SOUND FX: ON",     M_ACTION_TOGGLE_SOUND_FX, 1},
             { "BACK",             M_INGAME, 1}}
     },
-    /*M_CONFIRM_CANCEL*/ { "GAYING OUT?", 2,
+    /*M_CONFIRM_CANCEL*/ { "NOT MAN ENOUGH?", 2,
         {{ "EXIT",             M_ACTION_CANCEL, 0},
             { "GO BACK",          M_INGAME, 1}}
     },
@@ -1263,7 +1263,7 @@ void RenderMenu()
     int nlines = g_MenuDefs[g_current_menu].num_entries + (has_title ? 1 : 0);
     float menu_height = nlines * MENU_CHAR_SIZE + (nlines-1) * MENU_SPACE_BETWEEN_LINES;
     
-    float current_y = .5f * G_HEIGHT + .5f * menu_height;
+    float current_y = .5f * G_HEIGHT + .2f * menu_height;
     
     if (has_title)
     {
@@ -1304,7 +1304,8 @@ void RenderMenu()
     // Main menu adornments
     if (g_current_menu == M_MAIN)
     {
-        DrawCenteredLine(7.f/9.f * G_HEIGHT, "SPACEDICKS", makergba(1.f,.8f,.1f,1.f), MENU_TITLE_CHAR_SIZE);
+        DrawCenteredLine(7.f/9.f * G_HEIGHT, "SPACE", makergba(1.f,.8f,.1f,1.f), MENU_TITLE_CHAR_SIZE);
+        DrawCenteredLine(6.f/9.f * G_HEIGHT, "ARISTOCRAT", makergba(1.f,.8f,.1f,1.f), MENU_TITLE_CHAR_SIZE);
         DrawCenteredLine(1.f/8.f * G_HEIGHT, "~ 2013 CHRIS", makergba(.8f,.8f,1.f,1.f), MENU_CHAR_SIZE);
     }
 }
