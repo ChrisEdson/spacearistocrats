@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		837D18BA190E5F7E006C2783 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 837D18B9190E5F7E006C2783 /* readme.md */; };
 		8386DAFD1902D69F00EFF3A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */; };
 		8386DB391902D75400EFF3A3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB381902D75400EFF3A3 /* IOKit.framework */; };
 		8386DB3B1902D75900EFF3A3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8386DB3A1902D75900EFF3A3 /* OpenGL.framework */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		837D18B9190E5F7E006C2783 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		8386DAF91902D69F00EFF3A3 /* Space Aristocrat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Aristocrat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8386DAFC1902D69F00EFF3A3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8386DB141902D69F00EFF3A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		8386DAF01902D69F00EFF3A3 = {
 			isa = PBXGroup;
 			children = (
+				837D18B9190E5F7E006C2783 /* readme.md */,
 				83E0B6C5190ACCFD0075ABE8 /* Space Aristocrat.app */,
 				8386DB021902D69F00EFF3A3 /* spacecrashosx */,
 				8386DAFB1902D69F00EFF3A3 /* Frameworks */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83CC0ECF1902E26000BD47E8 /* data in Resources */,
+				837D18BA190E5F7E006C2783 /* readme.md in Resources */,
 				83E0B6C6190ACCFD0075ABE8 /* Space Aristocrat.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

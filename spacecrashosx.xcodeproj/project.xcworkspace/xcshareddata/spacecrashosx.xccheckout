@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>36029DC9-F98D-4726-A378-5DDD7AD8F8BF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>spacecrashosx</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3D2A47B1-5DDF-4B38-A52F-697D3D0225CB</key>
+		<string>ssh://github.com/ChrisEdson/spacearistocrats.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>spacecrashosx.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3D2A47B1-5DDF-4B38-A52F-697D3D0225CB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ChrisEdson/spacearistocrats.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3D2A47B1-5DDF-4B38-A52F-697D3D0225CB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3D2A47B1-5DDF-4B38-A52F-697D3D0225CB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>spacecrashosx</string>
+		</dict>
+	</array>
+</dict>
+</plist>
